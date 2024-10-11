@@ -24,8 +24,6 @@ public class EscrituraParImpar {
 			System.out.println("FicheroLeer.txt");
 			System.out.println("FicheroLeer1.txt");
 			archivoImpar = sc.nextLine();
-			
-			if(archivoPar.equals("FicheroLeer.txt") || archivoImpar.equals("FicheroLeer.txt") || archivoPar.equals("FicheroLeer1.txt") || archivoImpar.equals("FicheroLeer1.txt")) {
 				BufferedWriter bw = new BufferedWriter(new FileWriter(archivoPar));
 				BufferedWriter bw1 = new BufferedWriter(new FileWriter(archivoImpar));
 				BufferedReader br = new BufferedReader(new FileReader(archivoPar));
@@ -47,6 +45,7 @@ public class EscrituraParImpar {
 				} while (!escribir.equalsIgnoreCase("fin"));
 				bw.close();
 				bw1.close();
+				
 				System.out.println("Fichero par: ");
 				while ((escribir = br.readLine()) != null) {
 					System.out.println(escribir);
@@ -59,10 +58,7 @@ public class EscrituraParImpar {
 				}
 				br.close();
 				br1.close();
-			}else {
-				System.out.println("Introduzca uno de los ficheros dados.");
-				System.exit(0);
-			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
