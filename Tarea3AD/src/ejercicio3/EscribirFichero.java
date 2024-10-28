@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class EscribirFichero {
 
 	public static void main(String[] args) {
-		String escribir;
+		String escribir = "";
 		Scanner sc = new Scanner(System.in);
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("LecturaTexto.txt"));
@@ -18,19 +18,19 @@ public class EscribirFichero {
 			System.out.println("Empiece a escribir: ");
 			do {
 				escribir = sc.nextLine();
-				if(!escribir.equalsIgnoreCase("salir")) {
-					bw.write(escribir);
-					bw.newLine();
-				}
-			}while(!escribir.equalsIgnoreCase("salir"));
+				bw.write(escribir);
+				bw.newLine();
+
+			} while (!escribir.equalsIgnoreCase("salir"));
+
 			bw.close();
-			
+
 			System.out.println("Todo lo que ha escrito: ");
-			while((escribir = br.readLine()) != null) {
+			while ((escribir = br.readLine()) != null) {
 				System.out.println(escribir);
 			}
 			br.close();
-		}catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		sc.close();
